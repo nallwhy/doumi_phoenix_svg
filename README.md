@@ -1,21 +1,80 @@
 # Doumi.Phoenix.SVG
 
-**TODO: Add description**
+`Doumi.Phoenix.SVG` is a helper library that generates Phoenix Component from SVG files.
+
+**Doumi** means "helper" in Korean.
+
+## Usage
+
+Using SVG in HTML is too verbose. It makes HTML hard to understand.
+
+```elixir
+defmodule MyAppWeb.PageLive do
+  ...
+
+  def render(assigns) do
+    ~H"""
+    <div>
+      <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Elixir</title><path d="M19.793 16.575c0 3.752-2.927 7.426-7.743 7.426-5.249 0-7.843-3.71-7.843-8.29 0-5.21 3.892-12.952 8-15.647a.397.397 0 0 1 .61.371 9.716 9.716 0 0 0 1.694 6.518c.522.795 1.092 1.478 1.763 2.352.94 1.227 1.637 1.906 2.644 3.842l.015.028a7.107 7.107 0 0 1 .86 3.4z"/></svg>
+    </div>
+    """
+  end
+end
+```
+
+With `Doumi.Phoenix.SVG`, you can generate Phoenix Component from SVG files automatically.
+
+```html
+<!-- priv/icons/elixir-logo.svg -->
+
+<svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+  <title>Elixir</title>
+  <path
+    d="M19.793 16.575c0 3.752-2.927 7.426-7.743 7.426-5.249 0-7.843-3.71-7.843-8.29 0-5.21 3.892-12.952 8-15.647a.397.397 0 0 1 .61.371 9.716 9.716 0 0 0 1.694 6.518c.522.795 1.092 1.478 1.763 2.352.94 1.227 1.637 1.906 2.644 3.842l.015.028a7.107 7.107 0 0 1 .86 3.4z"
+  />
+</svg>
+```
+
+```elixir
+defmodule MyAppWeb.Icon do
+  use Doumi.Phoenix.SVG, path: "priv/icons"
+end
+
+defmodule MyAppWeb.PageLive do
+  ...
+
+  alias MyAppWeb.Icon
+  def render(assigns) do
+    ~H"""
+    <div>
+      <Icon.elixir_logo />
+    </div>
+    """
+  end
+end
+```
+
+`Doumi.Phoenix.SVG` generates function components with names of SVG files replaced hyphen with underscore.
+
+ex) `elixir-logo.svg` -> `elixir_logo/1`
+
+> SVG files must be in `priv` when your app is deployed with Elixir release.
 
 ## Installation
 
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed
-by adding `doumi_phoenix_svg` to your list of dependencies in `mix.exs`:
+Add `:doumi_phoenix_svg` to the list of dependencies in `mix.exs`:
 
 ```elixir
 def deps do
   [
-    {:doumi_phoenix_svg, "~> 0.1.0"}
+    {:doumi_phoenix_svg, "~> 0.1"}
   ]
 end
 ```
 
-Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
-and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
-be found at <https://hexdocs.pm/doumi_phoenix_svg>.
+## Copyright and License
 
+Copyright (c) 2022 Jinkyou Son (Json)
+
+This work is free. You can redistribute it and/or modify it under the
+terms of the MIT License. See the [LICENSE.md](./LICENSE.md) file for more details.
