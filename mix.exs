@@ -33,7 +33,7 @@ defmodule Doumi.Phoenix.SVG.MixProject do
       description: "A helper library that generates Phoenix Component from SVG files.",
       licenses: ["MIT"],
       maintainers: ["Jinkyou Son(nallwhy@gmail.com)"],
-      files: ~w(lib mix.exs README.md),
+      files: ~w(lib mix.exs README.md LICENSE.md),
       links: %{
         "GitHub" => @source_url
       }
