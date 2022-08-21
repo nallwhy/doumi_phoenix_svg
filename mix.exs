@@ -1,13 +1,16 @@
 defmodule Doumi.Phoenix.SVG.MixProject do
   use Mix.Project
 
+  @source_url "https://github.com/nallwhy/doumi_phoenix_svg"
+  @version "0.1.0"
+
   def project do
     [
       app: :doumi_phoenix_svg,
-      version: "0.1.0",
-      elixir: "~> 1.13",
-      start_permanent: Mix.env() == :prod,
-      deps: deps()
+      version: @version,
+      elixir: "~> 1.12",
+      deps: deps(),
+      package: package()
     ]
   end
 
@@ -22,6 +25,18 @@ defmodule Doumi.Phoenix.SVG.MixProject do
   defp deps do
     [
       {:phoenix_live_view, "~> 0.16"}
+    ]
+  end
+
+  defp package do
+    [
+      description: "A helper library that generates Phoenix Component from SVG files.",
+      licenses: ["MIT"],
+      maintainers: ["Jinkyou Son(nallwhy@gmail.com)"],
+      files: ~w(lib mix.exs README.md),
+      links: %{
+        "GitHub" => @source_url
+      }
     ]
   end
 end
