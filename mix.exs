@@ -32,7 +32,7 @@ defmodule Doumi.Phoenix.SVG.MixProject do
 
   defp package do
     [
-      description: "A helper library that generates Phoenix Component from SVG files.",
+      description: "A helper library that generates Phoenix function components from SVG files.",
       licenses: ["MIT"],
       maintainers: ["Jinkyou Son(nallwhy@gmail.com)"],
       files: ~w(lib mix.exs README.md LICENSE.md),
