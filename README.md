@@ -67,6 +67,8 @@ ex) `elixir-logo.svg` -> `elixir_logo/1`
 
 > SVG files must be in `priv` when your app is deployed with Elixir release.
 
+[Here](https://github.com/nallwhy/json_corp/commit/80fd9d40104d811de26d6abc5adc20a9911d241d)'s the real world example.
+
 ## Installation
 
 Add `:doumi_phoenix_svg` to the list of dependencies in `mix.exs`:
