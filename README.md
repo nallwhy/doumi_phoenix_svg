@@ -11,6 +11,8 @@
 
 **Doumi** means "helper" in Korean.
 
+The original idea for this library came from [@chitacan](https://github.com/chitacan).
+
 ## Usage
 
 Using SVG in HTML is too verbose. It makes HTML hard to understand.
