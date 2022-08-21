@@ -10,7 +10,8 @@ defmodule Doumi.Phoenix.SVG.MixProject do
       version: @version,
       elixir: "~> 1.12",
       deps: deps(),
-      package: package()
+      package: package(),
+      docs: docs()
     ]
   end
 
@@ -38,6 +39,19 @@ defmodule Doumi.Phoenix.SVG.MixProject do
       links: %{
         "GitHub" => @source_url
       }
+    ]
+  end
+
+  defp docs do
+    [
+      extras: [
+        "README.md": [title: "Overview"],
+        "LICENSE.md": [title: "License"]
+      ],
+      source_url: @source_url,
+      main: "readme",
+      api_reference: false,
+      formatters: ["html"]
     ]
   end
 end

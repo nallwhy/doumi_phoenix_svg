@@ -1,5 +1,7 @@
 # Doumi.Phoenix.SVG
 
+<!-- MDOC !-->
+
 `Doumi.Phoenix.SVG` is a helper library that generates Phoenix Component from SVG files.
 
 **Doumi** means "helper" in Korean.
@@ -71,6 +73,8 @@ def deps do
   ]
 end
 ```
+
+<!-- MDOC !-->
 
 ## Copyright and License
 
