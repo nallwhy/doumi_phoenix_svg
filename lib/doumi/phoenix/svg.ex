@@ -3,16 +3,44 @@ defmodule Doumi.Phoenix.SVG do
   Documentation for `Doumi.Phoenix.SVG`.
   """
 
-  @doc """
-  Hello world.
+  defmacro __using__(opts) do
+    path = opts |> Keyword.get(:path)
 
-  ## Examples
+    unless path do
+      raise ArgumentError, """
+      `:path` option is missing.
+      Add `:path` option to the `use Doumi.Phoenix.SVG`, for example:
 
-      iex> Doumi.Phoenix.SVG.hello()
-      :world
+          use Doumi.Phoenix.SVG, path: "priv/icons"
 
-  """
-  def hello do
-    :world
+      """
+    end
+
+    quote bind_quoted: [path: path] do
+      use Phoenix.Component
+
+      svg_paths = (path <> "/*.svg") |> Path.wildcard()
+      svg_paths_hash = :erlang.md5(svg_paths)
+
+      for svg_path <- svg_paths do
+        @external_resource svg_path
+      end
+
+      for svg_path <- svg_paths do
+        fun_name = Path.basename(svg_path, ".svg") |> String.replace("-", "_")
+        svg = File.read!(svg_path)
+        assigned_svg = svg |> String.replace("<svg ", "<svg {assigns} ")
+
+        assigns_var = Macro.var(:assigns, nil)
+
+        def unquote(String.to_atom(fun_name))(unquote(assigns_var)) do
+          sigil_H(<<unquote(assigned_svg)>>, [])
+        end
+      end
+
+      def __mix_recompile__?() do
+        unquote(svg_paths) |> :erlang.md5() != unquote(svg_paths_hash)
+      end
+    end
   end
 end
