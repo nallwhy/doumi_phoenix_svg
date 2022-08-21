@@ -1,5 +1,10 @@
 # Doumi.Phoenix.SVG
 
+[![Hex Version](https://img.shields.io/hexpm/v/doumi_phoenix_svg.svg)](https://hex.pm/packages/doumi_phoenix_svg)
+[![Hex Docs](https://img.shields.io/badge/hex-docs-lightgreen.svg)](https://hexdocs.pm/doumi_phoenix_svg/)
+[![License](https://img.shields.io/hexpm/l/doumi_phoenix_svg.svg)](https://github.com/nallwhy/doumi_phoenix_svg/blob/master/LICENSE.md)
+[![Last Updated](https://img.shields.io/github/last-commit/nallwhy/doumi_phoenix_svg.svg)](https://github.com/nallwhy/doumi_phoenix_svg/commits/main)
+
 <!-- MDOC !-->
 
 `Doumi.Phoenix.SVG` is a helper library that generates Phoenix Component from SVG files.
