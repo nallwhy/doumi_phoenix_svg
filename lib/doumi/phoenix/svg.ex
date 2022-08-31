@@ -19,7 +19,8 @@ defmodule Doumi.Phoenix.SVG do
     quote bind_quoted: [path: path] do
       use Phoenix.Component
 
-      svg_paths = (path <> "/*.svg") |> Path.wildcard()
+      svg_glob = path <> "/*.svg"
+      svg_paths = svg_glob |> Path.wildcard()
       svg_paths_hash = :erlang.md5(svg_paths)
 
       for svg_path <- svg_paths do
@@ -39,7 +40,7 @@ defmodule Doumi.Phoenix.SVG do
       end
 
       def __mix_recompile__?() do
-        unquote(svg_paths) |> :erlang.md5() != unquote(svg_paths_hash)
+        Path.wildcard(unquote(svg_glob)) |> :erlang.md5() != unquote(svg_paths_hash)
       end
     end
   end
