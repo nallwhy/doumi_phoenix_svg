@@ -25,7 +25,7 @@ defmodule Doumi.Phoenix.SVG.MixProject do
   # Run "mix help deps" to learn about dependencies.
   defp deps do
     [
-      {:phoenix_live_view, "~> 0.16"},
+      {:phoenix_live_view, "~> 0.16", optional: true},
       {:ex_doc, "~> 0.28", only: :dev, runtime: false}
     ]
   end
