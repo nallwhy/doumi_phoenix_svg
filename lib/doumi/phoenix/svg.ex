@@ -31,7 +31,7 @@ if Code.ensure_loaded!(Phoenix.Component) do
         for svg_path <- svg_paths do
           fun_name = Path.basename(svg_path, ".svg") |> String.replace("-", "_")
           svg = File.read!(svg_path)
-          assigned_svg = svg |> String.replace("<svg ", "<svg {assigns} ")
+          assigned_svg = svg |> String.replace("<svg ", "<svg {assigns_to_attributes(assigns)} ")
 
           assigns_var = Macro.var(:assigns, nil)
 
