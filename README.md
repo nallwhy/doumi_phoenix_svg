@@ -9,7 +9,7 @@
 
 `Doumi.Phoenix.SVG` is a helper library that generates Phoenix function components from SVG files.
 
-**Doumi** means "helper" in Korean.
+**도우미(Doumi)** means "helper" in Korean.
 
 The original idea for this library came from [@chitacan](https://github.com/chitacan).
 
@@ -73,17 +73,22 @@ ex) `elixir-logo.svg` -> `elixir_logo/1`
 
 ## Installation
 
-Add `:doumi_phoenix_svg` to the list of dependencies in `mix.exs`:
+If [available in Hex](https://hexdocs.pm/doumi_phoenix_svg/), the package can be installed
+by adding `doumi_phoenix_svg` to your list of dependencies in `mix.exs`:
 
 ```elixir
 def deps do
   [
-    {:doumi_phoenix_svg, "~> 0.1"}
+    {:doumi_phoenix_svg, "~> 0.3.0"}
   ]
 end
 ```
 
 <!-- MDOC !-->
+
+## Other Doumi packages
+
+- [Doumi.URI.Query](https://github.com/nallwhy/doumi_uri_query): A helper library that supports encoding complicated query of URI.
 
 ## Copyright and License
 
